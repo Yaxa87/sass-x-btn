@@ -1,0 +1,36 @@
+@function sqrt($r)
+		$x0: 1
+	$x1: $x0
+ 
+	@for $i from 1 through 2
+	    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0)
+	    $x0: $x1
+ 
+	@return $x1
+
+
+@mixin x-btn($width, $thickness, $color)
+	$diagonal: $width * sqrt(2) + 0px
+
+	position: relative
+	width: $width
+	height: $width
+
+	&:hover
+		cursor: pointer
+
+	&:before,
+	&:after
+		content: ""
+		position: absolute
+		top: $width/2 - $thickness/2
+		left: -$width*0.2
+		width: $width * sqrt(2)
+		height: $thickness
+		background-color: $color
+		transform-origin: 50% 50%
+
+	&:before
+		transform: rotate(45deg)
+	&:after
+		transform: rotate(-45deg)
