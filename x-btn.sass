@@ -10,7 +10,7 @@
 
 
 @mixin x-btn($width, $thickness, $color)
-	$diagonal: $width * sqrt(2) + 0px
+	$diagonal: $width * sqrt(2)
 
 	position: relative
 	width: $width
@@ -25,7 +25,7 @@
 		position: absolute
 		top: $width/2 - $thickness/2
 		left: -$width*0.2
-		width: $width * sqrt(2)
+		width: $diagonal
 		height: $thickness
 		background-color: $color
 		transform-origin: 50% 50%
